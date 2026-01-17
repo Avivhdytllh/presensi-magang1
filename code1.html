@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Beranda Sistem Presensi Magang</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-[#111418] dark:text-white transition-colors duration-300">
+    <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+        <div class="layout-container flex h-full grow flex-col">
+            <!-- Top Navigation Bar -->
+            <header
+                class="flex items-center justify-between whitespace-nowrap border-b border-solid border-primary/10 bg-white dark:bg-background-dark px-10 py-3 sticky top-0 z-50 shadow-sm">
+                <div class="flex items-center gap-4 text-primary">
+                    <div class="size-8 flex items-center justify-center bg-primary/10 rounded-lg">
+                        <span class="material-symbols-outlined text-primary">calendar_month</span>
+                    </div>
+                    <h2 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">
+                        Presensi Magang</h2>
+                </div>
+                <div class="flex flex-1 justify-end gap-8">
+                    <div class="hidden md:flex items-center gap-9">
+                        <a class="text-[#111418] dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors"
+                            href="#">Tentang</a>
+                        <a class="text-[#111418] dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors"
+                            href="#">Fitur</a>
+                        <a class="text-[#111418] dark:text-gray-300 text-sm font-medium hover:text-primary transition-colors"
+                            href="#">Bantuan</a>
+                    </div>
+                    <div class="flex gap-2">
+                        <a href="code4.html"
+                            class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-all">
+                            <span class="truncate">Masuk</span>
+                        </a>
+                        <a href="code6.html"
+                            class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary/10 dark:bg-white/10 text-primary dark:text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/20 transition-all">
+                            <span class="truncate">Daftar</span>
+                        </a>
+                    </div>
+                </div>
+            </header>
+            <main class="flex flex-col items-center">
+                <div class="layout-content-container flex flex-col max-w-[1200px] w-full px-4 md:px-10 py-10">
+                    <!-- Hero Section -->
+                    <div class="@container mb-12">
+                        <div class="flex flex-col gap-6 py-10 @[864px]:flex-row items-center">
+                            <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl shadow-lg @[864px]:w-1/2"
+                                data-alt="Professional office workspace with a laptop and notebook"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC95V42mdnijZnHbCZ5r00UuGheq9x5Cex5H4HJ5lCf1siEMStM7dOivWAWsjGfJbF1upgJQqka0kaTpwIESWyWweKfINusufkaoBP1wx4pc-wvbL8w4DXy-_GZBXtDROGE10sJXDcdF4Q21vHiiVWhd-1yqhseEq4nMeEJQ6hEHkY6rz59dGSaBp_twCfldpMR9NVZh1cTttxmBltLPccGQSzUEZRqwUBmyA3BgABsahB4yaF0FXvf0OI5bM4sonB_8NXxuepSItI");'>
+                            </div>
+                            <div class="flex flex-col gap-6 @[864px]:w-1/2 @[864px]:pl-12 justify-center">
+                                <div class="flex flex-col gap-4 text-left">
+                                    <h1
+                                        class="text-[#111418] dark:text-white text-4xl font-extrabold leading-tight tracking-[-0.033em] @[480px]:text-5xl">
+                                        Kelola Kehadiran Magang Anda dengan Mudah
+                                    </h1>
+                                    <p
+                                        class="text-[#4b5563] dark:text-gray-400 text-base font-normal leading-relaxed @[480px]:text-lg">
+                                        Platform terpadu untuk pencatatan kehadiran harian dan dokumentasi aktivitas
+                                        magang secara profesional, transparan, dan terorganisir.
+                                    </p>
+                                </div>
+                                <div class="flex flex-wrap gap-4">
+                                    <button
+                                        class="flex min-w-[160px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:shadow-lg transition-all active:scale-95">
+                                        <span class="truncate">Masuk ke Akun</span>
+                                    </button>
+                                    <button
+                                        class="flex min-w-[160px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-white dark:bg-transparent border-2 border-primary/20 dark:border-white/20 text-[#111418] dark:text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-gray-50 dark:hover:bg-white/5 transition-all active:scale-95">
+                                        <span class="truncate">Registrasi Peserta</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Motivation Card -->
+                    <div class="w-full mb-16">
+                        <div
+                            class="bg-primary/5 dark:bg-white/5 border border-primary/10 rounded-2xl overflow-hidden p-1">
+                            <div class="bg-cover bg-center flex flex-col items-stretch justify-end rounded-xl min-h-[220px] relative"
+                                data-alt="Modern abstract geometric pattern in blue and white"
+                                style='background-image: linear-gradient(90deg, rgba(19, 127, 236, 0.9) 0%, rgba(19, 127, 236, 0.4) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAw1DWsmIgziY4ooeoimHSrl9fFue25_7CXLwXDNzdfAhYFVQNOB4M85-i14d1DZcWn0ouCQmkN_siGzsjDcTSgOxELfGNiZUdA0XLPi-P3xT5k3HLMx4hmFQ3TrWN7JFcqcr5zHt_gNhQMjTKtxFTxHScjjG4j0f2nDuSFwuJj6RfsT3aTjHgR8_mxCB9yu4ygdukrNBBS3OmbzIRHohb6bOA7Rl8UiJMKwvTz5taDjd3QHpGmVSltJnmnpZY-JVTPgd0Yi5FJLsk");'>
+                                <div class="flex w-full items-end justify-between gap-4 p-8">
+                                    <div class="flex max-w-[600px] flex-1 flex-col gap-3">
+                                        <div class="flex items-center gap-2">
+                                            <span
+                                                class="material-symbols-outlined text-white/80 text-sm">format_quote</span>
+                                            <p class="text-white/80 text-sm font-semibold uppercase tracking-wider">
+                                                Motivasi Hari Ini</p>
+                                        </div>
+                                        <p
+                                            class="text-white tracking-light text-2xl md:text-3xl font-bold leading-tight italic">
+                                            "Kesuksesan adalah kumpulan usaha kecil yang dilakukan hari demi hari."
+                                        </p>
+                                        <p class="text-white text-lg font-medium opacity-90">— Robert Collier</p>
+                                    </div>
+                                    <div class="hidden md:block">
+                                        <span
+                                            class="material-symbols-outlined text-white/20 text-8xl">trending_up</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Feature Section -->
+                    <div class="flex flex-col gap-10 py-10 @container mb-16">
+                        <div class="flex flex-col gap-4 text-center items-center">
+                            <h2
+                                class="text-[#111418] dark:text-white tracking-light text-3xl font-extrabold leading-tight @[480px]:text-4xl max-w-[720px]">
+                                Mengapa Menggunakan Sistem Kami?
+                            </h2>
+                            <p
+                                class="text-[#4b5563] dark:text-gray-400 text-lg font-normal leading-normal max-w-[720px]">
+                                Dirancang khusus untuk membantu mahasiswa dan institusi memantau progres magang secara
+                                real-time dengan efisiensi maksimal.
+                            </p>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <!-- Feature 1 -->
+                            <div
+                                class="flex flex-1 gap-5 rounded-xl border border-primary/10 dark:border-white/10 bg-white dark:bg-white/5 p-6 flex-col hover:border-primary transition-colors group">
+                                <div
+                                    class="w-12 h-12 rounded-lg bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                                    <span class="material-symbols-outlined">schedule</span>
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <h3 class="text-[#111418] dark:text-white text-xl font-bold leading-tight">Presensi
+                                        Cepat</h3>
+                                    <p class="text-[#617589] dark:text-gray-400 text-sm leading-relaxed">Catat kehadiran
+                                        hanya dengan satu klik dari perangkat mana saja dengan verifikasi lokasi GPS.
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- Feature 2 -->
+                            <div
+                                class="flex flex-1 gap-5 rounded-xl border border-primary/10 dark:border-white/10 bg-white dark:bg-white/5 p-6 flex-col hover:border-primary transition-colors group">
+                                <div
+                                    class="w-12 h-12 rounded-lg bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                                    <span class="material-symbols-outlined">edit_note</span>
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <h3 class="text-[#111418] dark:text-white text-xl font-bold leading-tight">Log
+                                        Aktivitas</h3>
+                                    <p class="text-[#617589] dark:text-gray-400 text-sm leading-relaxed">Dokumentasikan
+                                        setiap kegiatan harian Anda dengan detail, lampirkan foto, dan catat progres
+                                        tugas.</p>
+                                </div>
+                            </div>
+                            <!-- Feature 3 -->
+                            <div
+                                class="flex flex-1 gap-5 rounded-xl border border-primary/10 dark:border-white/10 bg-white dark:bg-white/5 p-6 flex-col hover:border-primary transition-colors group">
+                                <div
+                                    class="w-12 h-12 rounded-lg bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                                    <span class="material-symbols-outlined">description</span>
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <h3 class="text-[#111418] dark:text-white text-xl font-bold leading-tight">Laporan
+                                        Otomatis</h3>
+                                    <p class="text-[#617589] dark:text-gray-400 text-sm leading-relaxed">Unduh laporan
+                                        kehadiran dan logbook aktivitas bulanan dalam format PDF yang siap diajukan ke
+                                        pembimbing.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- CTA Section -->
+                    <div class="@container mb-20">
+                        <div class="bg-primary rounded-3xl overflow-hidden relative">
+                            <!-- Background Decor -->
+                            <div
+                                class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-20 -mt-20 blur-3xl">
+                            </div>
+                            <div
+                                class="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full -ml-20 -mb-20 blur-2xl">
+                            </div>
+                            <div
+                                class="flex flex-col justify-center gap-8 px-6 py-16 @[480px]:px-20 @[480px]:py-24 text-center relative z-10">
+                                <div class="flex flex-col gap-4 items-center">
+                                    <h2
+                                        class="text-white tracking-tight text-3xl font-extrabold leading-tight @[480px]:text-5xl max-w-[800px]">
+                                        Siap Memulai Pengalaman Magang Anda?
+                                    </h2>
+                                    <p class="text-white/90 text-lg font-medium max-w-[600px]">
+                                        Gabung bersama ribuan mahasiswa lainnya dan kelola aktivitas magang Anda dengan
+                                        lebih terorganisir dan profesional.
+                                    </p>
+                                </div>
+                                <div class="flex justify-center gap-4">
+                                    <button
+                                        class="flex min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 px-8 bg-white text-primary text-lg font-bold hover:bg-gray-100 shadow-xl transition-all hover:-translate-y-1">
+                                        <span class="truncate">Daftar Sekarang</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <!-- Simple Footer -->
+            <footer class="bg-white dark:bg-background-dark border-t border-primary/10 py-10 px-10">
+                <div class="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary">calendar_month</span>
+                        <p class="text-[#111418] dark:text-white font-bold">Presensi Magang</p>
+                    </div>
+                    <p class="text-[#617589] text-sm">© 2024 Sistem Presensi Magang. Seluruh hak cipta dilindungi.</p>
+                    <div class="flex gap-6">
+                        <a class="text-[#617589] hover:text-primary transition-colors text-sm" href="#">Kebijakan
+                            Privasi</a>
+                        <a class="text-[#617589] hover:text-primary transition-colors text-sm" href="#">Syarat &amp;
+                            Ketentuan</a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>

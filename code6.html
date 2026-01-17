@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Registrasi Akun Magang - MagangTrack</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display min-h-screen flex flex-col">
+    <!-- Top Navigation Bar -->
+    <header
+        class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark px-6 lg:px-40 py-3">
+        <div class="flex items-center gap-4 text-[#111418] dark:text-white">
+            <div class="size-6 text-primary">
+                <svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
+                        fill="currentColor"></path>
+                </svg>
+            </div>
+            <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">MagangTrack</h2>
+        </div>
+        <div class="flex flex-1 justify-end gap-8">
+            <div class="flex items-center gap-9">
+                <a class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-normal hover:text-primary transition-colors"
+                    href="#">Beranda</a>
+                <a class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-normal hover:text-primary transition-colors"
+                    href="#">Bantuan</a>
+            </div>
+        </div>
+    </header>
+    <!-- Main Content Container -->
+    <main class="flex flex-1 items-center justify-center p-6">
+        <div
+            class="layout-content-container flex flex-col max-w-[480px] w-full bg-white dark:bg-slate-900 shadow-xl rounded-xl border border-slate-100 dark:border-slate-800 p-8">
+            <!-- Headline and Subtitle -->
+            <div class="flex flex-col items-center mb-8">
+                <div class="bg-primary/10 p-3 rounded-full mb-4">
+                    <span class="material-symbols-outlined text-primary text-3xl">person_add</span>
+                </div>
+                <h1
+                    class="text-[#111418] dark:text-white tracking-light text-[28px] font-bold leading-tight text-center pb-2">
+                    Registrasi Akun Magang
+                </h1>
+                <p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-relaxed text-center">
+                    Lengkapi data di bawah untuk mulai mencatat kehadiran magang Anda.
+                </p>
+            </div>
+            <!-- Error/Success Message -->
+            <div id="message" class="hidden mb-4 p-3 rounded-lg flex items-center gap-3"></div>
+            <!-- Registration Form -->
+            <form id="registerForm" class="space-y-4">
+                <!-- Email Input -->
+                <div class="flex flex-col gap-2">
+                    <label class="text-[#111418] dark:text-white text-sm font-medium leading-normal">
+                        Email
+                    </label>
+                    <input id="email"
+                        class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111418] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/20 border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:border-primary h-12 placeholder:text-slate-400 px-4 text-base font-normal leading-normal transition-all"
+                        placeholder="nama@email.com" type="email" required />
+                </div>
+                <!-- Password Input -->
+                <div class="flex flex-col gap-2">
+                    <label class="text-[#111418] dark:text-white text-sm font-medium leading-normal">
+                        Kata Sandi
+                    </label>
+                    <div class="relative flex w-full items-stretch rounded-lg">
+                        <input id="password"
+                            class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111418] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/20 border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:border-primary h-12 placeholder:text-slate-400 px-4 pr-12 text-base font-normal leading-normal transition-all"
+                            placeholder="Masukkan kata sandi" type="password" required minlength="6" />
+                        <button id="togglePassword"
+                            class="absolute right-0 top-0 bottom-0 px-4 text-slate-400 hover:text-primary flex items-center justify-center transition-colors"
+                            type="button">
+                            <span class="material-symbols-outlined">visibility</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- Terms and Conditions Hint -->
+                <p class="text-xs text-slate-400 dark:text-slate-500 py-1">
+                    Dengan mendaftar, Anda menyetujui Syarat &amp; Ketentuan kami.
+                </p>
+                <!-- Submit Button -->
+                <button id="submitBtn"
+                    class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-3.5 px-4 rounded-lg transition-all shadow-md active:scale-[0.98] mt-4 flex items-center justify-center gap-2"
+                    type="submit">
+                    Daftar
+                </button>
+            </form>
+            <!-- Login Link -->
+            <div class="mt-8 pt-6 border-t border-slate-100 dark:border-slate-800 text-center">
+                <p class="text-slate-600 dark:text-slate-400 text-sm font-medium">
+                    Sudah punya akun?
+                    <a class="text-primary hover:underline ml-1" href="#">Masuk</a>
+                </p>
+            </div>
+        </div>
+    </main>
+    <!-- Simple Footer -->
+    <footer class="py-6 px-10 text-center">
+        <p class="text-slate-400 text-xs">© 2023 MagangTrack. Sistem Monitoring Magang Mahasiswa.</p>
+    </footer>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+        // Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAgHn-0GD9ZO9paMNDyG2Eoj-20QutffAw",
+            authDomain: "presensi-magang-e8e6c.firebaseapp.com",
+            projectId: "presensi-magang-e8e6c",
+            storageBucket: "presensi-magang-e8e6c.firebasestorage.app",
+            messagingSenderId: "59103509614",
+            appId: "1:59103509614:web:f20555b294d0f7c31eba7f"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        // DOM Elements
+        const registerForm = document.getElementById('registerForm');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const submitBtn = document.getElementById('submitBtn');
+        const messageDiv = document.getElementById('message');
+        const togglePasswordBtn = document.getElementById('togglePassword');
+
+        // Toggle password visibility
+        togglePasswordBtn.addEventListener('click', () => {
+            const type = passwordInput.type === 'password' ? 'text' : 'password';
+            passwordInput.type = type;
+            togglePasswordBtn.querySelector('span').textContent = type === 'password' ? 'visibility' : 'visibility_off';
+        });
+
+        // Show message
+        function showMessage(text, isError = false) {
+            messageDiv.classList.remove('hidden', 'bg-green-50', 'bg-red-50', 'border-green-200', 'border-red-200');
+            messageDiv.classList.add(
+                isError ? 'bg-red-50' : 'bg-green-50',
+                isError ? 'border-red-200' : 'border-green-200',
+                'border'
+            );
+            messageDiv.innerHTML = `
+                <span class="material-symbols-outlined ${isError ? 'text-red-600' : 'text-green-600'}">${isError ? 'error' : 'check_circle'}</span>
+                <p class="${isError ? 'text-red-700' : 'text-green-700'} text-sm font-medium">${text}</p>
+            `;
+        }
+
+        // Handle registration
+        registerForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const email = emailInput.value.trim();
+            const password = passwordInput.value;
+
+            // Disable button
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="animate-spin">⏳</span> Mendaftar...';
+
+            try {
+                // Create user with Firebase Auth
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                const user = userCredential.user;
+
+                // Save user data to Firestore
+                await setDoc(doc(db, "users", user.uid), {
+                    email: email,
+                    createdAt: serverTimestamp(),
+                    nama: "",
+                    perusahaan: "",
+                    posisi: "",
+                    role: "mahasiswa"
+                });
+
+                showMessage('Registrasi berhasil! Mengalihkan ke halaman login...');
+
+                // Redirect to login page after 2 seconds
+                setTimeout(() => {
+                    window.location.href = 'code4.html';
+                }, 2000);
+
+            } catch (error) {
+                console.error('Registration error:', error);
+                let errorMessage = 'Terjadi kesalahan saat mendaftar.';
+
+                if (error.code === 'auth/email-already-in-use') {
+                    errorMessage = 'Email sudah terdaftar. Silakan gunakan email lain.';
+                } else if (error.code === 'auth/weak-password') {
+                    errorMessage = 'Kata sandi terlalu lemah. Minimal 6 karakter.';
+                } else if (error.code === 'auth/invalid-email') {
+                    errorMessage = 'Format email tidak valid.';
+                }
+
+                showMessage(errorMessage, true);
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Daftar';
+            }
+        });
+    </script>
+</body>
+
+</html>

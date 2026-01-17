@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Dashboard Presensi Mahasiswa</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display text-[#111418] dark:text-white transition-colors duration-200">
+    <!-- Top Navigation Bar -->
+    <header
+        class="sticky top-0 z-50 w-full border-b border-[#f0f2f4] dark:border-[#2a313c] bg-white dark:bg-[#1a2632] px-4 md:px-10 lg:px-40 py-3 flex items-center justify-between">
+        <div class="flex items-center gap-4">
+            <div class="size-8 text-primary">
+                <svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                    <path clip-rule="evenodd"
+                        d="M24 18.4228L42 11.475V34.3663C42 34.7796 41.7457 35.1504 41.3601 35.2992L24 42V18.4228Z"
+                        fill-rule="evenodd"></path>
+                    <path clip-rule="evenodd"
+                        d="M24 8.18819L33.4123 11.574L24 15.2071L14.5877 11.574L24 8.18819ZM9 15.8487L21 20.4805V37.6263L9 32.9945V15.8487ZM27 37.6263V20.4805L39 15.8487V32.9945L27 37.6263ZM25.354 2.29885C24.4788 1.98402 23.5212 1.98402 22.646 2.29885L4.98454 8.65208C3.7939 9.08038 3 10.2097 3 11.475V34.3663C3 36.0196 4.01719 37.5026 5.55962 38.098L22.9197 44.7987C23.6149 45.0671 24.3851 45.0671 25.0803 44.7987L42.4404 38.098C43.9828 37.5026 45 36.0196 45 34.3663V11.475C45 10.2097 44.2061 9.08038 43.0155 8.65208L25.354 2.29885Z"
+                        fill-rule="evenodd"></path>
+                </svg>
+            </div>
+            <h2 class="text-lg font-bold leading-tight tracking-tight">InternTrack</h2>
+            <nav class="hidden md:flex items-center gap-6 ml-8">
+                <a class="text-primary text-sm font-bold border-b-2 border-primary pb-1" href="#">Dashboard</a>
+                <a class="text-[#617589] text-sm font-medium hover:text-primary transition-colors"
+                    href="code3.html">Presensi</a>
+                <a class="text-[#617589] text-sm font-medium hover:text-primary transition-colors"
+                    href="code.html">Riwayat</a>
+                <a class="text-[#617589] text-sm font-medium hover:text-primary transition-colors"
+                    href="code1.html">Beranda</a>
+            </nav>
+        </div>
+        <div class="flex items-center gap-4 lg:gap-8">
+            <div class="hidden md:flex flex-col items-end">
+                <span id="userName" class="text-sm font-bold">Loading...</span>
+                <span id="userEmail" class="text-xs text-[#617589]">-</span>
+            </div>
+            <button id="logoutBtn"
+                class="flex min-w-[84px] cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold transition-hover hover:bg-primary/90">
+                <span>Logout</span>
+            </button>
+            <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-primary/20"
+                data-alt="User profile picture showing a young student"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDZ9NQ_jJK47-fTFfehmO58kWefw2Ib_hHSxo8cKe3SgrLkenW5yNfoq7ZEW5LvtC40hCCOJazzETEFN-9laW5LMl1wTu_rmED8A3sS6BMpDHA-7ExHh8VuN7qdYCfoaoonRe93clo_vxNrnv4EtEAfnUJYC6JCw62AXozCX8W2SjdlovdWFon-VBcA4fADx_itUWUVHOQbdsIGBWdxtNwsXhWz3b5ZgeP12fU5dM-YX6Y8nOhr4wTfx4sJqUYTVPTxBkxuC8Hm334");'>
+            </div>
+        </div>
+    </header>
+    <main class="flex flex-1 justify-center py-8">
+        <div class="flex flex-col w-full max-w-[960px] px-4 md:px-0">
+            <!-- Page Heading -->
+            <div class="flex flex-wrap justify-between gap-3 px-4 pb-6">
+                <div class="flex min-w-72 flex-col gap-1">
+                    <h1 class="text-[#111418] dark:text-white text-4xl font-black leading-tight tracking-tight">
+                        Dashboard Presensi</h1>
+                    <p class="text-[#617589] text-base font-normal">Selamat datang kembali di sistem pelacakan magang
+                        Anda.</p>
+                </div>
+            </div>
+            <!-- Stats Section -->
+            <div class="flex flex-wrap gap-4 p-4">
+                <div
+                    class="flex min-w-[200px] flex-1 flex-col gap-2 rounded-xl p-6 border border-[#dbe0e6] dark:border-[#2a313c] bg-white dark:bg-[#1a2632]">
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary text-2xl">calendar_month</span>
+                        <p class="text-[#111418] dark:text-white text-base font-medium leading-normal">Total Presensi
+                        </p>
+                    </div>
+                    <p id="totalPresensi"
+                        class="text-[#111418] dark:text-white tracking-light text-3xl font-bold leading-tight mt-1">0
+                        Hari</p>
+                    <div class="flex items-center gap-1">
+                        <span class="text-[#617589] text-sm">bulan ini</span>
+                    </div>
+                </div>
+                <div
+                    class="flex min-w-[200px] flex-1 flex-col gap-2 rounded-xl p-6 border border-[#dbe0e6] dark:border-[#2a313c] bg-white dark:bg-[#1a2632]">
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary text-2xl">check_circle</span>
+                        <p class="text-[#111418] dark:text-white text-base font-medium leading-normal">Presensi Hari Ini
+                        </p>
+                    </div>
+                    <p id="todayStatus" class="text-primary tracking-light text-3xl font-bold leading-tight mt-1">-</p>
+                    <p id="todayTime" class="text-[#617589] text-sm">-</p>
+                </div>
+            </div>
+            <!-- Action Panel -->
+            <div class="p-4 @container">
+                <div
+                    class="flex flex-1 flex-col items-start justify-between gap-4 rounded-xl border border-[#dbe0e6] dark:border-[#2a313c] bg-white dark:bg-[#1a2632] p-6 @[480px]:flex-row @[480px]:items-center">
+                    <div class="flex flex-col gap-1">
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary">edit_note</span>
+                            <p class="text-[#111418] dark:text-white text-lg font-bold leading-tight">Log Kehadiran
+                            </p>
+                        </div>
+                        <p class="text-[#617589] text-sm font-normal leading-normal">Isi presensi masuk di pagi hari,
+                            dan presensi pulang di sore hari.</p>
+                    </div>
+                    <div class="flex gap-3">
+                        <a href="code3.html"
+                            class="flex min-w-[140px] cursor-pointer items-center justify-center gap-2 rounded-lg h-12 px-5 bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20 hover:bg-primary/90 active:scale-95 transition-all">
+                            <span class="material-symbols-outlined">login</span>
+                            <span>Masuk</span>
+                        </a>
+                        <button id="pulangBtn"
+                            class="flex min-w-[140px] cursor-pointer items-center justify-center gap-2 rounded-lg h-12 px-5 bg-orange-500 text-white text-sm font-bold shadow-lg shadow-orange-500/20 hover:bg-orange-600 active:scale-95 transition-all">
+                            <span class="material-symbols-outlined">logout</span>
+                            <span>Pulang</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Table Header -->
+            <div class="flex items-center justify-between px-4 pb-3 pt-8">
+                <h2 class="text-[#111418] dark:text-white text-[22px] font-bold leading-tight tracking-tight">Riwayat
+                    Presensi Terbaru</h2>
+                <a href="code.html" class="text-primary text-sm font-bold hover:underline">Lihat Semua</a>
+            </div>
+            <!-- Recent History Table -->
+            <div class="px-4 pb-10">
+                <div
+                    class="overflow-hidden rounded-xl border border-[#dbe0e6] dark:border-[#2a313c] bg-white dark:bg-[#1a2632]">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-[#f8fafc] dark:bg-[#1e2a38] border-b border-[#dbe0e6] dark:border-[#2a313c]">
+                                <th class="px-6 py-4 text-sm font-bold text-[#617589]">Tanggal</th>
+                                <th class="px-6 py-4 text-sm font-bold text-[#617589]">Masuk</th>
+                                <th class="px-6 py-4 text-sm font-bold text-[#617589]">Pulang</th>
+                                <th class="px-6 py-4 text-sm font-bold text-[#617589]">Aktivitas</th>
+                                <th class="px-6 py-4 text-sm font-bold text-[#617589] text-center">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="presensiTableBody" class="divide-y divide-[#dbe0e6] dark:divide-[#2a313c]">
+                            <tr>
+                                <td colspan="5" class="px-6 py-8 text-center text-[#617589]">Memuat data...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer
+        class="w-full border-t border-[#f0f2f4] dark:border-[#2a313c] bg-white dark:bg-[#1a2632] px-4 md:px-10 lg:px-40 py-6 text-center">
+        <p class="text-[#617589] text-sm">© 2023 Presensi Mahasiswa Magang. All rights reserved.</p>
+    </footer>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+        import { getFirestore, collection, query, where, limit, getDocs, doc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+        // Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAgHn-0GD9ZO9paMNDyG2Eoj-20QutffAw",
+            authDomain: "presensi-magang-e8e6c.firebaseapp.com",
+            projectId: "presensi-magang-e8e6c",
+            storageBucket: "presensi-magang-e8e6c.firebasestorage.app",
+            messagingSenderId: "59103509614",
+            appId: "1:59103509614:web:f20555b294d0f7c31eba7f"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        // DOM Elements
+        const userNameEl = document.getElementById('userName');
+        const userEmailEl = document.getElementById('userEmail');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const pulangBtn = document.getElementById('pulangBtn');
+        const totalPresensiEl = document.getElementById('totalPresensi');
+        const todayStatusEl = document.getElementById('todayStatus');
+        const todayTimeEl = document.getElementById('todayTime');
+        const tableBody = document.getElementById('presensiTableBody');
+
+        let todayPresensiId = null; // Store today's presensi document ID
+
+        // Format date to Indonesian
+        function formatDate(dateStr) {
+            const date = new Date(dateStr);
+            const options = { day: 'numeric', month: 'short', year: 'numeric' };
+            return date.toLocaleDateString('id-ID', options);
+        }
+
+        // Get status badge HTML
+        function getStatusBadge(status) {
+            if (status === 'Hadir') {
+                return `<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-[#e1f5fe] text-primary">${status}</span>`;
+            } else {
+                return `<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-orange-100 text-orange-600">${status}</span>`;
+            }
+        }
+
+        // Check auth state
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                // Load user data
+                try {
+                    const userDoc = await getDoc(doc(db, "users", user.uid));
+                    if (userDoc.exists()) {
+                        const userData = userDoc.data();
+                        userNameEl.textContent = userData.nama || user.email;
+                        userEmailEl.textContent = userData.posisi || user.email;
+                    } else {
+                        userNameEl.textContent = user.email;
+                        userEmailEl.textContent = '-';
+                    }
+                } catch (e) {
+                    userNameEl.textContent = user.email;
+                }
+
+                // Load presensi data
+                await loadPresensiData(user.uid);
+
+            } else {
+                window.location.href = 'code4.html';
+            }
+        });
+
+        // Load presensi data
+        async function loadPresensiData(userId) {
+            try {
+                const q = query(
+                    collection(db, "presensi"),
+                    where("userId", "==", userId),
+                    limit(5)
+                );
+
+                const querySnapshot = await getDocs(q);
+                const presensiList = [];
+
+                querySnapshot.forEach((doc) => {
+                    presensiList.push({ id: doc.id, ...doc.data() });
+                });
+
+                // Update total
+                totalPresensiEl.textContent = presensiList.length + ' Hari';
+
+                // Check today's status
+                const today = new Date().toISOString().split('T')[0];
+                const todayPresensi = presensiList.find(p => p.tanggal === today);
+                if (todayPresensi) {
+                    todayPresensiId = todayPresensi.id; // Store for Pulang button
+                    todayStatusEl.textContent = todayPresensi.status;
+                    if (todayPresensi.jamPulang) {
+                        todayTimeEl.textContent = 'Masuk: ' + todayPresensi.jamMasuk + ' | Pulang: ' + todayPresensi.jamPulang;
+                    } else {
+                        todayTimeEl.textContent = 'Check-in: ' + todayPresensi.jamMasuk + ' (belum pulang)';
+                    }
+                } else {
+                    todayPresensiId = null;
+                    todayStatusEl.textContent = 'Belum';
+                    todayTimeEl.textContent = 'Belum presensi hari ini';
+                }
+
+                // Render table
+                if (presensiList.length === 0) {
+                    tableBody.innerHTML = '<tr><td colspan="5" class="px-6 py-8 text-center text-[#617589]">Belum ada data presensi</td></tr>';
+                } else {
+                    tableBody.innerHTML = presensiList.map(p => `
+                        <tr class="hover:bg-primary/5 transition-colors">
+                            <td class="px-6 py-4 text-sm font-medium">${formatDate(p.tanggal)}</td>
+                            <td class="px-6 py-4 text-sm">${p.jamMasuk}</td>
+                            <td class="px-6 py-4 text-sm">${p.jamPulang || '-'}</td>
+                            <td class="px-6 py-4 text-sm max-w-[200px] truncate">${p.catatanAktivitas}</td>
+                            <td class="px-6 py-4 text-center">${getStatusBadge(p.status)}</td>
+                        </tr>
+                    `).join('');
+                }
+
+            } catch (error) {
+                console.error('Error loading presensi:', error);
+                tableBody.innerHTML = '<tr><td colspan="5" class="px-6 py-8 text-center text-red-500">Gagal memuat data</td></tr>';
+            }
+        }
+
+        // Logout
+        logoutBtn.addEventListener('click', async () => {
+            try {
+                await signOut(auth);
+                localStorage.clear();
+                window.location.href = 'code4.html';
+            } catch (error) {
+                console.error('Logout error:', error);
+            }
+        });
+
+        // Pulang (Checkout)
+        pulangBtn.addEventListener('click', async () => {
+            if (!todayPresensiId) {
+                alert('Anda belum presensi masuk hari ini. Silakan presensi masuk terlebih dahulu.');
+                return;
+            }
+
+            const now = new Date();
+            const jamPulang = now.getHours().toString().padStart(2, '0') + ':' + now.getMinutes().toString().padStart(2, '0');
+
+            if (!confirm('Catat jam pulang: ' + jamPulang + '?')) {
+                return;
+            }
+
+            try {
+                pulangBtn.disabled = true;
+                pulangBtn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span> Menyimpan...';
+
+                await updateDoc(doc(db, "presensi", todayPresensiId), {
+                    jamPulang: jamPulang
+                });
+
+                alert('Jam pulang berhasil dicatat: ' + jamPulang);
+                window.location.reload(); // Refresh to show updated data
+            } catch (error) {
+                console.error('Error updating jam pulang:', error);
+                alert('Gagal menyimpan jam pulang: ' + error.message);
+                pulangBtn.disabled = false;
+                pulangBtn.innerHTML = '<span class="material-symbols-outlined">logout</span> Pulang';
+            }
+        });
+    </script>
+</body>
+
+</html>

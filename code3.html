@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Form Tambah Presensi Harian - InternTrack</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+
+        .form-input:focus {
+            border-color: #137fec;
+            box-shadow: 0 0 0 2px rgba(19, 127, 236, 0.2);
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark min-h-screen font-display">
+    <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+        <div class="layout-container flex h-full grow flex-col">
+            <!-- Top Navigation Bar -->
+            <header
+                class="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 dark:border-gray-800 bg-white dark:bg-background-dark px-10 py-3">
+                <div class="flex items-center gap-4 text-primary">
+                    <div class="size-6">
+                        <svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <path clip-rule="evenodd"
+                                d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z"
+                                fill="currentColor" fill-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <h2 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">
+                        InternTrack</h2>
+                </div>
+                <div class="flex flex-1 justify-end gap-8">
+                    <div class="flex items-center gap-9">
+                        <a class="text-[#111418] dark:text-gray-300 text-sm font-medium leading-normal hover:text-primary transition-colors"
+                            href="code2.html">Dashboard</a>
+                        <a class="text-primary text-sm font-bold leading-normal border-b-2 border-primary"
+                            href="#">Presensi</a>
+                        <a class="text-[#111418] dark:text-gray-300 text-sm font-medium leading-normal hover:text-primary transition-colors"
+                            href="code.html">Riwayat</a>
+                        <a class="text-[#111418] dark:text-gray-300 text-sm font-medium leading-normal hover:text-primary transition-colors"
+                            href="code1.html">Beranda</a>
+                    </div>
+                    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-primary/20"
+                        data-alt="User avatar placeholder profile picture"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDezQ7hyL7JHTW7QQjgSMLIxhw6d_b5xk0pxnddSmYrgZS-zJTaPvutY0MNW5FeISn66iyWryeS-mcDnui7liQmLzFn68L2doBedb67P7_xBGSF9QPXAa1n-GHqjTIp2OAOyPi8x1qvj0VyPUf1Fc6IFwtFb_vfvdi5uEr7PEj09gpfSzsKsbv96rsVm0Bee0WdfqJ_wpYiE_0gKlH3jxMuGjt1qZSLoUoUg397f98wy3FGMVE8SqiAiIWzFWtMHFHeEW1vieviUmA");'>
+                    </div>
+                </div>
+            </header>
+            <main class="flex flex-1 justify-center py-8">
+                <div class="layout-content-container flex flex-col max-w-[960px] flex-1 px-4">
+                    <!-- Breadcrumbs -->
+                    <div class="flex flex-wrap gap-2 py-2">
+                        <a class="text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal flex items-center hover:text-primary"
+                            href="#">
+                            <span class="material-symbols-outlined text-sm mr-1">home</span> Dashboard
+                        </a>
+                        <span class="text-gray-400 text-sm font-medium leading-normal">/</span>
+                        <a class="text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal hover:text-primary"
+                            href="#">Presensi</a>
+                        <span class="text-gray-400 text-sm font-medium leading-normal">/</span>
+                        <span class="text-[#111418] dark:text-white text-sm font-bold leading-normal">Tambah
+                            Presensi</span>
+                    </div>
+                    <!-- Page Heading -->
+                    <div class="flex flex-wrap justify-between gap-3 py-6">
+                        <div class="flex flex-col gap-1">
+                            <h1
+                                class="text-[#111418] dark:text-white text-3xl font-black leading-tight tracking-[-0.033em]">
+                                Tambah Presensi Harian</h1>
+                            <p class="text-gray-500 dark:text-gray-400 text-base font-normal leading-normal">Silakan isi
+                                detail kehadiran dan kegiatan harian magang Anda.</p>
+                        </div>
+                    </div>
+                    <!-- Main Form Card -->
+                    <div
+                        class="bg-white dark:bg-background-dark/50 border border-gray-200 dark:border-gray-800 rounded-xl shadow-sm overflow-hidden">
+                        <div class="p-6 border-b border-gray-100 dark:border-gray-800 bg-gray-50/50 dark:bg-white/5">
+                            <h3
+                                class="text-[#111418] dark:text-white text-xl font-bold leading-tight flex items-center gap-2">
+                                <span class="material-symbols-outlined text-primary">edit_note</span>
+                                Detail Informasi Magang
+                            </h3>
+                        </div>
+                        <form id="presensiForm" class="p-8 flex flex-col gap-6">
+                            <!-- Student Info Section (Full Width) -->
+                            <div class="flex flex-col gap-1">
+                                <label class="text-[#111418] dark:text-white text-sm font-semibold leading-normal">Nama
+                                    Mahasiswa</label>
+                                <div class="relative">
+                                    <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+                                        <span class="material-symbols-outlined">person</span>
+                                    </span>
+                                    <input id="nama"
+                                        class="form-input flex w-full rounded-lg text-[#111418] dark:text-white border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 h-12 pl-10 pr-4 text-base font-normal"
+                                        placeholder="Masukkan nama lengkap" type="text" required />
+                                </div>
+                            </div>
+                            <!-- Company & Position Grid -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="flex flex-col gap-1">
+                                    <label
+                                        class="text-[#111418] dark:text-white text-sm font-semibold leading-normal">Nama
+                                        Perusahaan</label>
+                                    <div class="relative">
+                                        <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+                                            <span class="material-symbols-outlined">domain</span>
+                                        </span>
+                                        <input id="perusahaan"
+                                            class="form-input flex w-full rounded-lg text-[#111418] dark:text-white border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 h-12 pl-10 pr-4 text-base font-normal"
+                                            placeholder="Nama instansi/perusahaan" type="text" required />
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-1">
+                                    <label
+                                        class="text-[#111418] dark:text-white text-sm font-semibold leading-normal">Posisi
+                                        Magang</label>
+                                    <div class="relative">
+                                        <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+                                            <span class="material-symbols-outlined">work</span>
+                                        </span>
+                                        <input id="posisi"
+                                            class="form-input flex w-full rounded-lg text-[#111418] dark:text-white border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 h-12 pl-10 pr-4 text-base font-normal"
+                                            placeholder="Posisi saat ini" type="text" required />
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Date & Time Grid -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="flex flex-col gap-1">
+                                    <label
+                                        class="text-[#111418] dark:text-white text-sm font-semibold leading-normal">Tanggal
+                                        Presensi</label>
+                                    <div class="relative">
+                                        <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+                                            <span class="material-symbols-outlined">calendar_today</span>
+                                        </span>
+                                        <input id="tanggal"
+                                            class="form-input flex w-full rounded-lg text-[#111418] dark:text-white border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 h-12 pl-10 pr-4 text-base font-normal"
+                                            type="date" required />
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-1">
+                                    <label
+                                        class="text-[#111418] dark:text-white text-sm font-semibold leading-normal">Jam
+                                        Masuk</label>
+                                    <div class="relative">
+                                        <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+                                            <span class="material-symbols-outlined">schedule</span>
+                                        </span>
+                                        <input id="jamMasuk"
+                                            class="form-input flex w-full rounded-lg text-[#111418] dark:text-white border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 h-12 pl-10 pr-4 text-base font-normal"
+                                            type="time" required />
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Activity Note (Full Width Textarea) -->
+                            <div class="flex flex-col gap-1">
+                                <label
+                                    class="text-[#111418] dark:text-white text-sm font-semibold leading-normal">Catatan
+                                    Kegiatan</label>
+                                <textarea id="catatan"
+                                    class="form-input flex w-full rounded-lg text-[#111418] dark:text-white border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 p-4 text-base font-normal resize-none"
+                                    placeholder="Tuliskan apa saja yang Anda kerjakan hari ini..." rows="5" required
+                                    minlength="20"></textarea>
+                                <p class="text-right text-xs text-gray-400 mt-1 italic">Minimal 20 karakter</p>
+                            </div>
+                            <!-- Action Buttons -->
+                            <div
+                                class="flex items-center justify-end gap-4 pt-4 mt-4 border-t border-gray-100 dark:border-gray-800">
+                                <button
+                                    class="px-6 h-12 rounded-lg text-gray-700 dark:text-gray-300 font-bold hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                                    type="button">
+                                    Batal
+                                </button>
+                                <button id="submitBtn"
+                                    class="px-8 h-12 bg-primary hover:bg-primary/90 rounded-lg text-white font-bold shadow-lg shadow-primary/20 transition-all flex items-center gap-2"
+                                    type="submit">
+                                    <span class="material-symbols-outlined text-sm">save</span>
+                                    Simpan Presensi
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Additional Help Text -->
+                    <div
+                        class="mt-8 p-4 bg-primary/5 dark:bg-primary/10 border border-primary/20 rounded-xl flex items-start gap-4">
+                        <span class="material-symbols-outlined text-primary">info</span>
+                        <div class="flex-1">
+                            <p class="text-sm text-gray-700 dark:text-gray-300">
+                                <strong>Penting:</strong> Presensi harian harus dikirimkan paling lambat pukul 18:00 WIB
+                                setiap harinya. Pastikan catatan kegiatan informatif dan mencerminkan progres harian
+                                Anda.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <!-- Footer -->
+            <footer
+                class="py-10 flex flex-col items-center justify-center gap-2 border-t border-gray-200 dark:border-gray-800 text-gray-400 text-sm">
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-sm">verified_user</span>
+                    <span>Sistem Pelacakan Magang Terintegrasi</span>
+                </div>
+                <p>© 2023 InternTrack. All rights reserved.</p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc, doc, getDoc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+        // Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAgHn-0GD9ZO9paMNDyG2Eoj-20QutffAw",
+            authDomain: "presensi-magang-e8e6c.firebaseapp.com",
+            projectId: "presensi-magang-e8e6c",
+            storageBucket: "presensi-magang-e8e6c.firebasestorage.app",
+            messagingSenderId: "59103509614",
+            appId: "1:59103509614:web:f20555b294d0f7c31eba7f"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        // DOM Elements
+        const presensiForm = document.getElementById('presensiForm');
+        const namaInput = document.getElementById('nama');
+        const perusahaanInput = document.getElementById('perusahaan');
+        const posisiInput = document.getElementById('posisi');
+        const tanggalInput = document.getElementById('tanggal');
+        const jamMasukInput = document.getElementById('jamMasuk');
+        const catatanInput = document.getElementById('catatan');
+        const submitBtn = document.getElementById('submitBtn');
+
+        let currentUser = null;
+
+        // Set default date to today
+        tanggalInput.value = new Date().toISOString().split('T')[0];
+        // Set default time to current time
+        jamMasukInput.value = new Date().toTimeString().slice(0, 5);
+
+        // Check auth state
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                currentUser = user;
+                // Load user data from Firestore
+                try {
+                    const userDoc = await getDoc(doc(db, "users", user.uid));
+                    if (userDoc.exists()) {
+                        const userData = userDoc.data();
+                        if (userData.nama) namaInput.value = userData.nama;
+                        if (userData.perusahaan) perusahaanInput.value = userData.perusahaan;
+                        if (userData.posisi) posisiInput.value = userData.posisi;
+                    }
+                } catch (e) {
+                    console.log('Error loading user data:', e);
+                }
+            } else {
+                // Redirect to login if not authenticated
+                alert('Anda harus login terlebih dahulu!');
+                window.location.href = 'code4.html';
+            }
+        });
+
+        // Handle form submission
+        presensiForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            if (!currentUser) {
+                alert('Anda harus login terlebih dahulu!');
+                return;
+            }
+
+            // Disable button
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="animate-spin">⏳</span> Menyimpan...';
+
+            try {
+                // Determine status based on time
+                const jamMasuk = jamMasukInput.value;
+                let status = 'Hadir';
+                if (jamMasuk > '08:15') {
+                    status = 'Terlambat';
+                }
+
+                // Save presensi to Firestore
+                await addDoc(collection(db, "presensi"), {
+                    userId: currentUser.uid,
+                    nama: namaInput.value,
+                    perusahaan: perusahaanInput.value,
+                    posisi: posisiInput.value,
+                    tanggal: tanggalInput.value,
+                    jamMasuk: jamMasukInput.value,
+                    jamPulang: "",
+                    catatanAktivitas: catatanInput.value,
+                    status: status,
+                    createdAt: serverTimestamp()
+                });
+
+                // Update user profile (create if not exists)
+                const userRef = doc(db, "users", currentUser.uid);
+                await setDoc(userRef, {
+                    nama: namaInput.value,
+                    perusahaan: perusahaanInput.value,
+                    posisi: posisiInput.value,
+                    email: currentUser.email
+                }, { merge: true });
+
+                alert('Presensi berhasil disimpan!');
+                window.location.href = 'code2.html'; // Redirect to main dashboard
+
+            } catch (error) {
+                console.error('Error saving presensi:', error);
+                alert('Gagal menyimpan presensi: ' + error.message);
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<span class="material-symbols-outlined text-sm">save</span> Simpan Presensi';
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,376 @@
+<!-- <!DOCTYPE html>
+
+<html class="light" lang="id">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>InternTrack - Notifikasi Berhasil Simpan</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display min-h-screen">
+    <div class="flex flex-col h-screen">
+        <!-- Top Navigation -->
+        <header
+            class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f0f2f4] dark:border-b-slate-800 bg-white dark:bg-slate-900 px-10 py-3 z-10">
+            <div class="flex items-center gap-8">
+                <div class="flex items-center gap-4 text-primary">
+                    <div class="size-6">
+                        <svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <path clip-rule="evenodd"
+                                d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z"
+                                fill="currentColor" fill-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <h2 class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">
+                        InternTrack</h2>
+                </div>
+                <label class="hidden md:flex flex-col min-w-40 !h-10 max-w-64">
+                    <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+                        <div class="text-[#617589] flex border-none bg-[#f0f2f4] dark:bg-slate-800 items-center justify-center pl-4 rounded-l-lg"
+                            data-icon="search">
+                            <span class="material-symbols-outlined text-xl">search</span>
+                        </div>
+                        <input
+                            class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111418] dark:text-white focus:outline-0 focus:ring-0 border-none bg-[#f0f2f4] dark:bg-slate-800 focus:border-none h-full placeholder:text-[#617589] px-4 rounded-l-none pl-2 text-base font-normal"
+                            placeholder="Search logs..." value="" />
+                    </div>
+                </label>
+            </div>
+            <div class="flex flex-1 justify-end gap-8">
+                <div class="hidden lg:flex items-center gap-9">
+                    <a class="text-primary text-sm font-bold leading-normal border-b-2 border-primary pb-1"
+                        href="code2.html">Dashboard</a>
+                    <a class="text-[#111418] dark:text-slate-300 text-sm font-medium leading-normal hover:text-primary transition"
+                        href="code3.html">Attendance</a>
+                    <a class="text-[#111418] dark:text-slate-300 text-sm font-medium leading-normal hover:text-primary transition"
+                        href="code.html">Activity Logs</a>
+                    <a class="text-[#111418] dark:text-slate-300 text-sm font-medium leading-normal hover:text-primary transition"
+                        href="#">Reports</a>
+                </div>
+                <div class="flex gap-2">
+                    <button
+                        class="flex items-center justify-center rounded-lg h-10 w-10 bg-[#f0f2f4] dark:bg-slate-800 text-[#111418] dark:text-white hover:bg-slate-200 transition">
+                        <span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+                    </button>
+                    <button
+                        class="flex items-center justify-center rounded-lg h-10 w-10 bg-[#f0f2f4] dark:bg-slate-800 text-[#111418] dark:text-white hover:bg-slate-200 transition">
+                        <span class="material-symbols-outlined" data-icon="help">help</span>
+                    </button>
+                </div>
+                <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 ring-2 ring-primary/20"
+                    data-alt="Student profile picture"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAM91i5h9cFm8AECWAtg057Km_BSol_m1-MuMNKrEEEeIHhFHLCqWvDU82h5nEA0gkMI_SUzus4ME1ouCrfu-6zod4k9Qy4RRxGE9oCH_QuiMWj4rKMZrnkolFiwiarWoXL6zQYQPXVCBIO0HSsEqGH0ZCW_GEFxpNf5F_NDn8Er26J9aOHZ0IE8mPY4VN2n3Y5n00Gs64z-V7OCKZthGTrdUTj8SQRDXwC9ko1esm1Iqe6FX73AUNE0bxXhc9njAXOkgy-B5DRWPM");'>
+                </div>
+            </div>
+        </header>
+        <div class="flex flex-1 overflow-hidden">
+            <!-- Sidebar -->
+            <aside
+                class="w-64 flex flex-col justify-between bg-white dark:bg-slate-900 border-r border-slate-100 dark:border-slate-800 p-4 shrink-0">
+                <div class="flex flex-col gap-6">
+                    <div class="flex flex-col px-3">
+                        <h1 class="text-[#111418] dark:text-white text-base font-bold leading-normal">Budi Santoso</h1>
+                        <p class="text-[#617589] text-xs font-medium leading-normal uppercase tracking-wider">Intern
+                            Developer</p>
+                    </div>
+                    <nav class="flex flex-col gap-1">
+                        <div
+                            class="flex items-center gap-3 px-3 py-2 text-[#617589] dark:text-slate-400 hover:bg-primary/5 hover:text-primary rounded-lg transition cursor-pointer">
+                            <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                            <p class="text-sm font-semibold">Overview</p>
+                        </div>
+                        <div
+                            class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary text-white shadow-md shadow-primary/20 cursor-pointer">
+                            <span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+                            <p class="text-sm font-semibold">My Presence</p>
+                        </div>
+                        <div
+                            class="flex items-center gap-3 px-3 py-2 text-[#617589] dark:text-slate-400 hover:bg-primary/5 hover:text-primary rounded-lg transition cursor-pointer">
+                            <span class="material-symbols-outlined" data-icon="description">description</span>
+                            <p class="text-sm font-semibold">Daily Journal</p>
+                        </div>
+                        <div
+                            class="flex items-center gap-3 px-3 py-2 text-[#617589] dark:text-slate-400 hover:bg-primary/5 hover:text-primary rounded-lg transition cursor-pointer">
+                            <span class="material-symbols-outlined" data-icon="domain">domain</span>
+                            <p class="text-sm font-semibold">Company Info</p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-slate-50 dark:border-slate-800">
+                            <div
+                                class="flex items-center gap-3 px-3 py-2 text-[#617589] dark:text-slate-400 hover:bg-primary/5 hover:text-primary rounded-lg transition cursor-pointer">
+                                <span class="material-symbols-outlined" data-icon="settings">settings</span>
+                                <p class="text-sm font-semibold">Settings</p>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <button
+                    class="flex w-full items-center justify-center rounded-lg h-11 px-4 bg-primary text-white text-sm font-bold shadow-lg shadow-primary/30 hover:bg-blue-600 transition active:scale-95">
+                    <span class="truncate">New Attendance Log</span>
+                </button>
+            </aside>
+            <!-- Main Content -->
+            <main class="flex-1 overflow-y-auto bg-background-light dark:bg-background-dark relative">
+                <!-- Floating Toast Notification Overlay -->
+                <div
+                    class="absolute top-6 left-1/2 -translate-x-1/2 z-50 w-full max-w-xl px-4 animate-in fade-in slide-in-from-top-4 duration-300">
+                    <div
+                        class="flex flex-col md:flex-row items-center justify-between gap-4 rounded-xl border border-green-100 bg-white dark:bg-slate-900 dark:border-green-900/30 p-5 shadow-2xl ring-1 ring-green-500/10">
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="flex h-12 w-12 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400">
+                                <span class="material-symbols-outlined text-3xl font-bold">check_circle</span>
+                            </div>
+                            <div class="flex flex-col gap-1">
+                                <p class="text-[#111418] dark:text-white text-lg font-bold leading-tight">Presensi
+                                    berhasil disimpan</p>
+                                <p class="text-[#617589] dark:text-slate-400 text-sm font-normal leading-normal">Laporan
+                                    harian Anda untuk hari ini telah berhasil tercatat di sistem.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-2">
+                            <a href="code.html"
+                                class="flex min-w-[100px] cursor-pointer items-center justify-center rounded-lg h-9 px-4 bg-primary text-white text-xs font-bold hover:bg-blue-600 transition">
+                                <span class="truncate">View History</span>
+                            </a>
+                            <button
+                                class="flex items-center justify-center rounded-lg h-9 w-9 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition">
+                                <span class="material-symbols-outlined">close</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="max-w-5xl mx-auto p-8 pt-24">
+                    <!-- Page Heading -->
+                    <div class="flex flex-wrap justify-between items-end gap-3 mb-8">
+                        <div class="flex flex-col gap-2">
+                            <p
+                                class="text-[#111418] dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">
+                                Attendance Dashboard</p>
+                            <p class="text-[#617589] dark:text-slate-400 text-base font-normal leading-normal">Record
+                                and monitor your daily internship presence and weekly progress.</p>
+                        </div>
+                        <div
+                            class="flex items-center gap-2 bg-white dark:bg-slate-800 p-1.5 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm">
+                            <button
+                                class="px-4 py-1.5 rounded text-sm font-semibold bg-primary text-white shadow-sm">Monthly</button>
+                            <button
+                                class="px-4 py-1.5 rounded text-sm font-semibold text-[#617589] dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700 transition">Weekly</button>
+                        </div>
+                    </div>
+                    <!-- Stats -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                        <div
+                            class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm transition hover:shadow-md">
+                            <div class="flex justify-between items-start">
+                                <p
+                                    class="text-[#617589] dark:text-slate-400 text-sm font-medium uppercase tracking-wider">
+                                    Days Present</p>
+                                <span class="material-symbols-outlined text-primary"
+                                    data-icon="calendar_month">calendar_month</span>
+                            </div>
+                            <p
+                                class="text-[#111418] dark:text-white tracking-tight text-3xl font-extrabold leading-tight">
+                                18<span class="text-slate-300 dark:text-slate-600 text-xl font-medium">/22</span></p>
+                            <div class="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full mt-2 overflow-hidden">
+                                <div class="bg-primary h-full rounded-full" style="width: 82%"></div>
+                            </div>
+                        </div>
+                        <div
+                            class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm transition hover:shadow-md">
+                            <div class="flex justify-between items-start">
+                                <p
+                                    class="text-[#617589] dark:text-slate-400 text-sm font-medium uppercase tracking-wider">
+                                    Pending Logs</p>
+                                <span class="material-symbols-outlined text-amber-500"
+                                    data-icon="pending_actions">pending_actions</span>
+                            </div>
+                            <p
+                                class="text-[#111418] dark:text-white tracking-tight text-3xl font-extrabold leading-tight">
+                                2</p>
+                            <p class="text-amber-600 dark:text-amber-500 text-xs font-semibold mt-1">Requires mentor
+                                approval</p>
+                        </div>
+                        <div
+                            class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm transition hover:shadow-md">
+                            <div class="flex justify-between items-start">
+                                <p
+                                    class="text-[#617589] dark:text-slate-400 text-sm font-medium uppercase tracking-wider">
+                                    Total Hours</p>
+                                <span class="material-symbols-outlined text-green-500"
+                                    data-icon="schedule">schedule</span>
+                            </div>
+                            <p
+                                class="text-[#111418] dark:text-white tracking-tight text-3xl font-extrabold leading-tight">
+                                144<span class="text-slate-400 text-xl font-medium">h</span></p>
+                            <p class="text-green-600 dark:text-green-500 text-xs font-semibold mt-1">↑ 12% from last
+                                month</p>
+                        </div>
+                    </div>
+                    <!-- Recent Activity Table Mockup -->
+                    <div
+                        class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-sm">
+                        <div
+                            class="p-6 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center">
+                            <h3 class="text-[#111418] dark:text-white text-lg font-bold">Recent Presence Logs</h3>
+                            <button class="text-primary text-sm font-bold hover:underline transition">See All</button>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr
+                                        class="bg-slate-50/50 dark:bg-slate-800/50 text-[#617589] dark:text-slate-400 text-xs font-bold uppercase tracking-wider">
+                                        <th class="px-6 py-4">Date</th>
+                                        <th class="px-6 py-4">Time In</th>
+                                        <th class="px-6 py-4">Time Out</th>
+                                        <th class="px-6 py-4">Status</th>
+                                        <th class="px-6 py-4 text-right">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+                                    <tr class="bg-green-50/30 dark:bg-green-900/10">
+                                        <td class="px-6 py-4">
+                                            <div class="flex flex-col">
+                                                <span class="text-[#111418] dark:text-white font-bold">Today, 24
+                                                    Oct</span>
+                                                <span class="text-[#617589] dark:text-slate-500 text-xs">Thursday</span>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 text-[#111418] dark:text-slate-300 font-medium">08:52 AM
+                                        </td>
+                                        <td class="px-6 py-4 text-[#111418] dark:text-slate-300 font-medium">05:15 PM
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <span
+                                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400">
+                                                <span class="w-1.5 h-1.5 rounded-full bg-green-500 mr-1.5"></span>
+                                                Recorded
+                                            </span>
+                                        </td>
+                                        <td class="px-6 py-4 text-right">
+                                            <button class="text-[#617589] hover:text-primary transition">
+                                                <span class="material-symbols-outlined">edit</span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4">
+                                            <div class="flex flex-col">
+                                                <span class="text-[#111418] dark:text-white font-bold">23 Oct
+                                                    2023</span>
+                                                <span
+                                                    class="text-[#617589] dark:text-slate-500 text-xs">Wednesday</span>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 text-[#111418] dark:text-slate-300 font-medium">09:05 AM
+                                        </td>
+                                        <td class="px-6 py-4 text-[#111418] dark:text-slate-300 font-medium">05:30 PM
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <span
+                                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400">
+                                                <span class="w-1.5 h-1.5 rounded-full bg-green-500 mr-1.5"></span>
+                                                Approved
+                                            </span>
+                                        </td>
+                                        <td class="px-6 py-4 text-right">
+                                            <button class="text-[#617589] hover:text-primary transition">
+                                                <span class="material-symbols-outlined">visibility</span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4">
+                                            <div class="flex flex-col">
+                                                <span class="text-[#111418] dark:text-white font-bold">22 Oct
+                                                    2023</span>
+                                                <span class="text-[#617589] dark:text-slate-500 text-xs">Tuesday</span>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 text-[#111418] dark:text-slate-300 font-medium">08:45 AM
+                                        </td>
+                                        <td class="px-6 py-4 text-[#111418] dark:text-slate-300 font-medium">05:00 PM
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <span
+                                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400">
+                                                <span class="w-1.5 h-1.5 rounded-full bg-green-500 mr-1.5"></span>
+                                                Approved
+                                            </span>
+                                        </td>
+                                        <td class="px-6 py-4 text-right">
+                                            <button class="text-[#617589] hover:text-primary transition">
+                                                <span class="material-symbols-outlined">visibility</span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+        // Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAgHn-0GD9ZO9paMNDyG2Eoj-20QutffAw",
+            authDomain: "presensi-magang-e8e6c.firebaseapp.com",
+            projectId: "presensi-magang-e8e6c",
+            storageBucket: "presensi-magang-e8e6c.firebasestorage.app",
+            messagingSenderId: "59103509614",
+            appId: "1:59103509614:web:f20555b294d0f7c31eba7f"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // Check auth state
+        onAuthStateChanged(auth, (user) => {
+            if (!user) {
+                window.location.href = 'code4.html';
+            }
+        });
+    </script>
+</body>
+
+</html> -->
